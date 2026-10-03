@@ -1025,3 +1025,113 @@ html.lenis {
         font-size: 2rem;
     }
 }
+
+/* Floating Music / Nasheed Control */
+.music-toggle {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 10001;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 0 10px rgba(212, 175, 55, 0.15);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    outline: none;
+    user-select: none;
+}
+
+.music-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12), 0 0 15px rgba(212, 175, 55, 0.3);
+    background: rgba(255, 255, 255, 0.96);
+    border-color: var(--accent-color);
+}
+
+.music-toggle .music-icon-svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--primary-color);
+    flex-shrink: 0;
+}
+
+/* Equalizer Bars Animation */
+.music-equalizer {
+    display: flex;
+    align-items: flex-end;
+    gap: 2.5px;
+    height: 14px;
+    width: 12px;
+}
+
+.music-equalizer span {
+    width: 2.5px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    height: 4px;
+    transition: height 0.2s ease, background-color 0.2s ease;
+}
+
+.music-toggle.playing .music-equalizer span:nth-child(1) {
+    animation: eq-bounce 1s ease-in-out infinite alternate;
+}
+
+.music-toggle.playing .music-equalizer span:nth-child(2) {
+    animation: eq-bounce 0.8s ease-in-out infinite alternate 0.2s;
+}
+
+.music-toggle.playing .music-equalizer span:nth-child(3) {
+    animation: eq-bounce 1.2s ease-in-out infinite alternate 0.4s;
+}
+
+@keyframes eq-bounce {
+    0% { height: 3px; }
+    50% { height: 14px; }
+    100% { height: 6px; }
+}
+
+.music-toggle.muted .music-equalizer span {
+    height: 3px !important;
+    background: #bbb;
+}
+
+.music-toggle.muted {
+    opacity: 0.85;
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.music-toggle.muted .music-icon-muted {
+    display: inline-block;
+}
+
+.music-toggle.playing .music-icon-muted {
+    display: none;
+}
+
+.music-toggle.muted .music-icon-play {
+    display: none;
+}
+
+.music-toggle.playing .music-icon-play {
+    display: inline-block;
+}
+
+@media (max-width: 600px) {
+    .music-toggle {
+        top: 16px;
+        right: 16px;
+        padding: 6px 12px;
+        font-size: 0.72rem;
+    }
+}

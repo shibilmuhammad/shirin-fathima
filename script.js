@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const text2Element = document.getElementById('typing-text-2');
     const openBtn = document.getElementById('open-invitation-btn');
     
-    const text1 = "Aslam & Kadeeja Hanna";
-    const text2 = "Our wedding on 27th September 2026";
+    const text1 = "Shinin Abdullah & Fathima Abdul Jamal";
+    const text2 = "Our wedding on 21st October 2026";
     
     function typeWriter(text, i, element, callback) {
         if (i < text.length) {
@@ -46,7 +46,70 @@ document.addEventListener('DOMContentLoaded', () => {
         openBtn.addEventListener('click', closeEntryScreen);
     }
     
+    // Background Audio / Nasheed Logic
+    const bgMusic = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-toggle-btn');
+    const musicStatusText = document.getElementById('music-status-text');
+    let isPlaying = false;
+    let userHasManuallyMuted = false;
+
+    function updateMusicUI(playing) {
+        if (!musicBtn) return;
+        if (playing) {
+            musicBtn.classList.add('playing');
+            musicBtn.classList.remove('muted');
+            musicBtn.setAttribute('title', 'Mute Nasheed');
+            if (musicStatusText) musicStatusText.textContent = 'Nasheed';
+        } else {
+            musicBtn.classList.remove('playing');
+            musicBtn.classList.add('muted');
+            musicBtn.setAttribute('title', 'Play Nasheed');
+            if (musicStatusText) musicStatusText.textContent = userHasManuallyMuted ? 'Muted' : 'Play Nasheed';
+        }
+    }
+
+    function playMusic() {
+        if (!bgMusic) return;
+        bgMusic.volume = 0.35;
+        const playPromise = bgMusic.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                isPlaying = true;
+                updateMusicUI(true);
+            }).catch(() => {
+                isPlaying = false;
+                updateMusicUI(false);
+            });
+        }
+    }
+
+    function pauseMusic() {
+        if (!bgMusic) return;
+        bgMusic.pause();
+        isPlaying = false;
+        updateMusicUI(false);
+    }
+
+    if (musicBtn && bgMusic) {
+        musicBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (isPlaying) {
+                userHasManuallyMuted = true;
+                pauseMusic();
+            } else {
+                userHasManuallyMuted = false;
+                playMusic();
+            }
+        });
+    }
+
+    // Try subtle initial play if allowed
+    playMusic();
+
     function closeEntryScreen() {
+        if (!userHasManuallyMuted && !isPlaying) {
+            playMusic();
+        }
         if(!entryScreen.classList.contains('hidden')){
             entryScreen.classList.add('hidden');
             setTimeout(() => {
@@ -56,6 +119,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 800);
         }
     }
+
+    // Auto-enable audio on first interaction if not manually muted
+    const enableAudioOnFirstInteraction = (e) => {
+        if (e.target && (e.target.closest('#music-toggle-btn') || userHasManuallyMuted)) return;
+        if (!isPlaying) {
+            playMusic();
+        }
+        window.removeEventListener('click', enableAudioOnFirstInteraction);
+        window.removeEventListener('touchstart', enableAudioOnFirstInteraction);
+    };
+    window.addEventListener('click', enableAudioOnFirstInteraction);
+    window.addEventListener('touchstart', enableAudioOnFirstInteraction);
 
     // Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
@@ -80,8 +155,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     requestAnimationFrame(raf);
 
-    // Countdown Logic (27th September 2026 at 11:00 AM)
-    const targetDate = new Date("September 27, 2026 11:00:00").getTime();
+    // Countdown Logic (21st October 2026 at 11:00 AM)
+    const targetDate = new Date("October 21, 2026 11:00:00").getTime();
 
     const updateCountdown = () => {
         const now = new Date().getTime();

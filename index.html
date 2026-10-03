@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Save the Date | Aslam & Kadeeja Hanna</title>
-    <meta name="description" content="Join us for the Wedding Ceremony of Aslam & Kadeeja Hanna on Sunday, September 27th, 2026 at Mullodi(h.o) Ayancheri.">
+    <title>Save the Date | Shinin Abdullah & Fathima Abdul Jamal</title>
+    <meta name="description" content="Join us for the Wedding Ceremony of Shinin Abdullah & Fathima Abdul Jamal on Wednesday, October 21st, 2026 at Meruzila Convention Center, Poonoor - Narikkuni Rd, Elettil, Kozhikode.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- Open Graph Metadata for Social Sharing -->
-    <meta property="og:title" content="Save the Date | Aslam & Kadeeja Hanna">
-    <meta property="og:description" content="Wedding Ceremony of Aslam & Kadeeja Hanna on Sunday, September 27th, 2026 at Mullodi(h.o) Ayancheri.">
+    <meta property="og:title" content="Save the Date | Shinin Abdullah & Fathima Abdul Jamal">
+    <meta property="og:description" content="Wedding Ceremony of Shinin Abdullah & Fathima Abdul Jamal on Wednesday, October 21st, 2026 at Meruzila Convention Center, Poonoor - Narikkuni Rd, Elettil, Kozhikode.">
     <meta property="og:image" content="images/couple_illustration.jpg">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -21,16 +21,36 @@
 </head>
 <body>
 
+    <!-- Background Audio & Floating Music Control -->
+    <audio id="bg-music" src="audio/nasheed.mp3" loop preload="auto"></audio>
+    <button id="music-toggle-btn" class="music-toggle muted" aria-label="Toggle Nasheed background music" title="Play Nasheed">
+        <svg class="music-icon-svg music-icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+        <svg class="music-icon-svg music-icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+        <div class="music-equalizer">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <span class="music-status-text" id="music-status-text">Play Nasheed</span>
+    </button>
+
     <!-- Entry Screen -->
     <div id="entry-screen">
         <div class="entry-content">
             <div class="avatars-container">
                 <div class="entry-avatar-frame">
-                    <img src="images/groom_avatar.jpg" alt="Aslam" class="entry-avatar groom-avatar">
+                    <img src="images/groom_avatar.jpg" alt="Shinin Abdullah" class="entry-avatar groom-avatar">
                 </div>
                 <div class="avatar-union-icon">🕊️</div>
                 <div class="entry-avatar-frame">
-                    <img src="images/bride_avatar.jpg" alt="Kadeeja Hanna" class="entry-avatar bride-avatar">
+                    <img src="images/bride_avatar.jpg" alt="Fathima Abdul Jamal" class="entry-avatar bride-avatar">
                 </div>
             </div>
             <div class="typing-container">
@@ -52,12 +72,12 @@
             <div class="bismillah-hero" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
             <p class="subtitle">SAVE THE DATE</p>
             <h1 class="title">
-                <span style="white-space: nowrap;">Aslam</span> <br>
+                <span style="white-space: nowrap;">Shinin Abdullah</span> <br>
                 <span class="ampersand">&</span><br> 
-                <span style="white-space: nowrap;">Kadeeja Hanna</span>
+                <span style="white-space: nowrap;">Fathima Abdul Jamal</span>
             </h1>
             <p class="event-type">Wedding Ceremony</p>
-            <p class="date">Sunday, September 27th, 2026</p>
+            <p class="date">Wednesday, October 21st, 2026</p>
         </div>
         
         <div class="scroll-indicator">
@@ -83,9 +103,9 @@
             <div class="couple-grid">
                 <div class="couple-card">
                     <div class="couple-avatar-wrapper">
-                        <img src="images/groom_avatar.jpg" alt="Aslam" class="couple-avatar-img">
+                        <img src="images/groom_avatar.jpg" alt="Shinin Abdullah" class="couple-avatar-img">
                     </div>
-                    <h3 class="person-name">Aslam</h3>
+                    <h3 class="person-name">Shinin Abdullah</h3>
                 </div>
 
                 <div class="couple-knot">
@@ -95,9 +115,9 @@
 
                 <div class="couple-card">
                     <div class="couple-avatar-wrapper">
-                        <img src="images/bride_avatar.jpg" alt="Kadeeja Hanna" class="couple-avatar-img">
+                        <img src="images/bride_avatar.jpg" alt="Fathima Abdul Jamal" class="couple-avatar-img">
                     </div>
-                    <h3 class="person-name">Kadeeja Hanna</h3>
+                    <h3 class="person-name">Fathima Abdul Jamal</h3>
                 </div>
             </div>
         </div>
@@ -139,17 +159,17 @@
                 <h3>Wedding Ceremony</h3>
                 <div class="detail-row">
                     <span class="detail-icon">📅</span>
-                    <p class="date">Sunday, September 27th, 2026</p>
+                    <p class="date">Wednesday, October 21st, 2026</p>
                 </div>
                 <div class="detail-row">
                     <span class="detail-icon">⏰</span>
-                    <p class="time">11:00 AM</p>
+                    <p class="time">11:00 AM – 3:00 PM</p>
                 </div>
                 <div class="venue-box">
                     <span class="venue-label">LOCATION & VENUE</span>
-                    <p class="venue">Mullodi(h.o) Ayancheri</p>
+                    <p class="venue">Meruzila Convention Center<br><span style="font-size: 0.92rem; font-weight: normal; opacity: 0.85; display: block; margin-top: 4px;">Poonoor - Narikkuni Rd, Elettil, Kozhikode</span></p>
                 </div>
-                <a href="https://maps.app.goo.gl/wUCUB8mtsXfE3JT57?g_st=iw" target="_blank" rel="noopener noreferrer" class="btn map-btn">
+                <a href="https://www.google.com/maps/dir//MERUZILA+CONVENTION+CENTER,+Poonoor+-+Narikkuni+Rd,+Kanjiramukku,+Elettil,+Kizhakkoth,+Keralam+673572/@12.8452076,77.6421572,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3ba6676f2bbafc37:0x961982a6b28edf1c!2m2!1d75.8832788!2d11.3905317?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn map-btn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
                     View on Google Maps
                 </a>
@@ -160,13 +180,13 @@
     <!-- Footer -->
     <footer>
         <div class="footer-avatar-duo">
-            <img src="images/groom_avatar.jpg" alt="Aslam" class="footer-mini-avatar">
+            <img src="images/groom_avatar.jpg" alt="Shinin Abdullah" class="footer-mini-avatar">
             <span class="footer-duo-symbol">🤍</span>
-            <img src="images/bride_avatar.jpg" alt="Kadeeja Hanna" class="footer-mini-avatar">
+            <img src="images/bride_avatar.jpg" alt="Fathima Abdul Jamal" class="footer-mini-avatar">
         </div>
         <p class="split-animate">Looking forward to celebrating with you!</p>
-        <p class="names split-animate">Aslam & Kadeeja Hanna</p>
-        <p class="footer-subtext split-animate">September 27, 2026 • Mullodi(h.o) Ayancheri</p>
+        <p class="names split-animate">Shinin Abdullah & Fathima Abdul Jamal</p>
+        <p class="footer-subtext split-animate">October 21, 2026 • Meruzila Convention Center, Poonoor - Narikkuni Rd, Elettil, Kozhikode</p>
 
         <!-- Invitegram Branding -->
         <div class="invitegram-badge split-animate">
