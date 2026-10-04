@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Save the Date | Shinin Abdullah & Fathima Abdul Jamal</title>
-    <meta name="description" content="Join us for the Wedding Ceremony of Shinin Abdullah & Fathima Abdul Jamal on Wednesday, October 21st, 2026 at Meruzila Convention Center, Poonoor - Narikkuni Rd, Elettil, Kozhikode.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Wedding Invitation — Shinin Abdullah &amp; Fathima Abdul Jamal | Oct 21, 2026</title>
+    <meta name="description" content="With the blessings of Almighty Allah &amp; our families, you are cordially invited to celebrate the Wedding of Shinin Abdullah &amp; Fathima Abdul Jamal on Wednesday, October 21, 2026 at Meruzila Convention Center, Poonoor - Narikkuni Rd, Elettil, Kozhikode.">
+    <meta name="theme-color" content="#F2F1E8">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- Open Graph Metadata for Social Sharing -->
-    <meta property="og:title" content="Save the Date | Shinin Abdullah & Fathima Abdul Jamal">
-    <meta property="og:description" content="Wedding Ceremony of Shinin Abdullah & Fathima Abdul Jamal on Wednesday, October 21st, 2026 at Meruzila Convention Center, Poonoor - Narikkuni Rd, Elettil, Kozhikode.">
+    <meta property="og:title" content="Wedding Invitation — Shinin Abdullah &amp; Fathima Abdul Jamal">
+    <meta property="og:description" content="Wedding Ceremony of Shinin Abdullah &amp; Fathima Abdul Jamal on Wednesday, October 21, 2026 at Meruzila Convention Center, Poonoor - Narikkuni Rd, Elettil, Kozhikode.">
     <meta property="og:image" content="images/couple_illustration.jpg">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -21,184 +23,324 @@
 </head>
 <body>
 
-    <!-- Background Audio & Floating Music Control -->
-    <audio id="bg-music" src="audio/nasheed.mp3" loop preload="auto"></audio>
-    <button id="music-toggle-btn" class="music-toggle muted" aria-label="Toggle Nasheed background music" title="Play Nasheed">
-        <svg class="music-icon-svg music-icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 5"></polygon>
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-        </svg>
-        <svg class="music-icon-svg music-icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 5"></polygon>
-            <line x1="23" y1="9" x2="17" y2="15"></line>
-            <line x1="17" y1="9" x2="23" y2="15"></line>
-        </svg>
-        <div class="music-equalizer">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <span class="music-status-text" id="music-status-text">Play Nasheed</span>
-    </button>
+    <!-- Ambient Luxury Glow -->
+    <div class="ambient-glow"></div>
 
-    <!-- Entry Screen -->
-    <div id="entry-screen">
-        <div class="entry-content">
-            <div class="avatars-container">
-                <div class="entry-avatar-frame">
-                    <img src="images/groom_avatar.jpg" alt="Shinin Abdullah" class="entry-avatar groom-avatar">
-                </div>
-                <div class="avatar-union-icon">🕊️</div>
-                <div class="entry-avatar-frame">
-                    <img src="images/bride_avatar.jpg" alt="Fathima Abdul Jamal" class="entry-avatar bride-avatar">
-                </div>
-            </div>
-            <div class="typing-container">
-                <h1 id="typing-text-1" class="typing-text"></h1>
-                <p id="typing-text-2" class="typing-subtitle"></p>
-            </div>
-            <button id="open-invitation-btn" class="entry-btn hide">Open Invitation</button>
+    <!-- Background Golden Dust / Sparkles Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Background Audio -->
+    <audio id="bg-music" src="audio/audio.mpeg" loop preload="auto"></audio>
+
+    <!-- ==========================================================================
+         INTERACTIVE 3D VIDEO ENVELOPE OPENING SCREEN (AUTOPLAY)
+         ========================================================================== -->
+    <div id="envelope-screen">
+        <div class="envelope-video-wrapper">
+            <video id="envelope-video" class="envelope-video" src="videos/envelope_opening.mp4" playsinline muted autoplay preload="auto"></video>
         </div>
     </div>
 
-    <!-- Particles Background -->
-    <canvas id="particles-canvas"></canvas>
+    <!-- ==========================================================================
+         MAIN INVITATION CONTENT
+         ========================================================================== -->
+    <div id="invitation-content">
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg" id="hero-bg" style="background-image: url('images/couple_illustration.jpg');"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content fade-in-up">
-            <div class="bismillah-hero" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
-            <p class="subtitle">SAVE THE DATE</p>
-            <h1 class="title">
-                <span style="white-space: nowrap;">Shinin Abdullah</span> <br>
-                <span class="ampersand">&</span><br> 
-                <span style="white-space: nowrap;">Fathima Abdul Jamal</span>
-            </h1>
-            <p class="event-type">Wedding Ceremony</p>
-            <p class="date">Wednesday, October 21st, 2026</p>
-        </div>
-        
-        <div class="scroll-indicator">
-            <span>Scroll to explore</span>
-            <div class="arrow"></div>
-        </div>
-    </section>
+        <!-- 1. Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-header-top fade-in-on-scroll in-view">
+                <div class="bismillah-calligraphy" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+                <div class="header-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <span>The Blessed Wedding</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+            </div>
 
-    <!-- Couple Blessing / Quote Section -->
-    <section class="quote-section split-animate">
-        <div class="container">
-            <div class="islamic-motif">﷽</div>
-            <p class="arabic-verse" dir="rtl">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
-            <p class="quote">"And among His signs is that He created for you mates from among yourselves, that you may find tranquility in them; and He placed between you affection and mercy."</p>
-            <p class="quote-reference">— Surah Ar-Rum (30:21)</p>
-        </div>
-    </section>
+            <!-- Islamic Moorish Arch Portrait Frame -->
+            <div class="arch-frame-wrapper fade-in-on-scroll in-view">
+                <div class="arch-frame-inner">
+                    <img src="images/couple_illustration.jpg" alt="Shinin Abdullah &amp; Fathima Abdul Jamal" class="arch-image">
+                    <div class="arch-gradient-overlay"></div>
+                </div>
+            </div>
 
-    <!-- Couple Avatar Profiles Section -->
-    <section class="couple-profiles-section split-animate">
-        <div class="container">
-            <h2 class="section-title">The Happy Couple</h2>
-            <div class="couple-grid">
-                <div class="couple-card">
-                    <div class="couple-avatar-wrapper">
-                        <img src="images/groom_avatar.jpg" alt="Shinin Abdullah" class="couple-avatar-img">
+            <!-- Couple Names -->
+            <div class="hero-names-block fade-in-on-scroll in-view">
+                <h1 class="hero-person-name gold-text-gradient">Shinin Abdullah</h1>
+                <div class="hero-ampersand-divider">
+                    <span class="line"></span>
+                    <span class="ampersand">&amp;</span>
+                    <span class="line"></span>
+                </div>
+                <h2 class="hero-person-name gold-text-gradient">Fathima Abdul Jamal</h2>
+            </div>
+
+            <!-- Detail Pills -->
+            <div class="hero-pills-row fade-in-on-scroll in-view">
+                <div class="hero-pill">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Wednesday, October 21, 2026</span>
+                </div>
+                <div class="hero-pill">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>11:00 AM – 3:00 PM</span>
+                </div>
+                <div class="hero-pill hero-pill-venue">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Meruzila Convention Center, Poonoor - Narikkuni Rd</span>
+                </div>
+            </div>
+
+            <div class="scroll-explore">
+                <span>Scroll to explore</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+        </section>
+
+        <!-- 2. Quranic Blessing & Sacred Beginning Section -->
+        <section class="blessing-section">
+            <div class="container">
+                <div class="glass-panel ornate-card fade-in-on-scroll">
+                    <span class="ornate-corner top-left"></span>
+                    <span class="ornate-corner top-right"></span>
+                    <span class="ornate-corner bottom-left"></span>
+                    <span class="ornate-corner bottom-right"></span>
+
+                    <div class="emblem-circle">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     </div>
-                    <h3 class="person-name">Shinin Abdullah</h3>
-                </div>
 
-                <div class="couple-knot">
-                    <span class="knot-ring">💍</span>
-                    <p class="knot-text">Together Forever</p>
-                </div>
+                    <h3 class="blessing-subtitle">With the blessings of Almighty Allah &amp; our families...</h3>
 
-                <div class="couple-card">
-                    <div class="couple-avatar-wrapper">
-                        <img src="images/bride_avatar.jpg" alt="Fathima Abdul Jamal" class="couple-avatar-img">
+                    <div class="quran-box">
+                        <p class="quran-verse-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+                        <p class="quran-verse-translation">"And among His signs is that He created for you mates from among yourselves, that you may find tranquility in them; and He placed between you affection and mercy."</p>
+                        <p style="font-size: 0.85rem; color: var(--gold-accent); margin-top: 6px; font-weight: 600;">— Surah Ar-Rum (30:21)</p>
                     </div>
-                    <h3 class="person-name">Fathima Abdul Jamal</h3>
+
+                    <p class="invitation-body-text">
+                        We request the honor of your gracious presence and heartfelt prayers as we unite in the sacred bond of Nikah and begin our blessed journey of togetherness.
+                    </p>
+
+                    <div class="blessing-signature">
+                        <div class="header-badge" style="margin-bottom: 0;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <span>With Love &amp; Prayers</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <p class="blessing-names gold-text-gradient">Shinin Abdullah &amp; Fathima</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Countdown Section -->
-    <section class="countdown-section split-animate">
-        <div class="container">
-            <h2 class="section-title">The Big Day</h2>
-            <div class="countdown" id="countdown">
-                <div class="time-box">
-                    <span class="number" id="days">00</span>
-                    <span class="label">Days</span>
+        <!-- 3. Countdown Section ("The Sacred Moment Approaches") -->
+        <section class="countdown-section">
+            <div class="container">
+                <div class="header-badge fade-in-on-scroll">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <span>The Sacred Moment Approaches</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 </div>
-                <div class="time-box">
-                    <span class="number" id="hours">00</span>
-                    <span class="label">Hours</span>
-                </div>
-                <div class="time-box">
-                    <span class="number" id="minutes">00</span>
-                    <span class="label">Minutes</span>
-                </div>
-                <div class="time-box">
-                    <span class="number" id="seconds">00</span>
-                    <span class="label">Seconds</span>
+                <h2 class="section-title fade-in-on-scroll">Counting Down to Our Wedding</h2>
+                <p class="section-subtitle fade-in-on-scroll">Wednesday, October 21, 2026 at 11:00 AM</p>
+
+                <div class="countdown-grid fade-in-on-scroll">
+                    <div class="glass-panel countdown-tile">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="glass-panel countdown-tile">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="glass-panel countdown-tile">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="glass-panel countdown-tile">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- When & Where -->
-    <section class="details-section split-animate">
-        <div class="container">
-            <h2 class="section-title">When & Where</h2>
-            <div class="details-card">
-                <div class="icon-wrapper">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <!-- 4. Couple Profiles ("Two Souls Joined in Faith") -->
+        <section class="couple-section">
+            <div class="container">
+                <div class="header-badge fade-in-on-scroll">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <span>Two Souls Joined in Faith</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 </div>
-                <h3>Wedding Ceremony</h3>
-                <div class="detail-row">
-                    <span class="detail-icon">📅</span>
-                    <p class="date">Wednesday, October 21st, 2026</p>
+                <h2 class="section-title fade-in-on-scroll">The Happy Couple</h2>
+                <p class="section-subtitle fade-in-on-scroll">"Guided by love, family blessings, and faith, building a future filled with joy."</p>
+
+                <div class="couple-cards-grid">
+                    <!-- Groom -->
+                    <div class="glass-panel person-card fade-in-on-scroll">
+                        <div class="person-arch-frame">
+                            <img src="images/groom_avatar.jpg" alt="Shinin Abdullah">
+                        </div>
+                        <h3 class="person-name-curly gold-text-gradient">Shinin Abdullah</h3>
+                        <span class="person-role-tag">The Groom • العريس</span>
+                        <p class="person-bio">Ambitious, warm-hearted, and dedicated to creating lifelong memories, peace, and shared joy.</p>
+                    </div>
+
+                    <!-- Bride -->
+                    <div class="glass-panel person-card fade-in-on-scroll">
+                        <div class="person-arch-frame">
+                            <img src="images/bride_avatar.jpg" alt="Fathima Abdul Jamal">
+                        </div>
+                        <h3 class="person-name-curly gold-text-gradient">Fathima Abdul Jamal</h3>
+                        <span class="person-role-tag">The Bride • العروس</span>
+                        <p class="person-bio">Graceful, compassionate, and passionate about family traditions, harmony, and togetherness.</p>
+                    </div>
                 </div>
-                <div class="detail-row">
-                    <span class="detail-icon">⏰</span>
-                    <p class="time">11:00 AM – 3:00 PM</p>
-                </div>
-                <div class="venue-box">
-                    <span class="venue-label">LOCATION & VENUE</span>
-                    <p class="venue">Meruzila Convention Center<br><span style="font-size: 0.92rem; font-weight: normal; opacity: 0.85; display: block; margin-top: 4px;">Poonoor - Narikkuni Rd, Elettil, Kozhikode</span></p>
-                </div>
-                <a href="https://www.google.com/maps/dir//MERUZILA+CONVENTION+CENTER,+Poonoor+-+Narikkuni+Rd,+Kanjiramukku,+Elettil,+Kizhakkoth,+Keralam+673572/@12.8452076,77.6421572,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3ba6676f2bbafc37:0x961982a6b28edf1c!2m2!1d75.8832788!2d11.3905317?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn map-btn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
-                    View on Google Maps
-                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-avatar-duo">
-            <img src="images/groom_avatar.jpg" alt="Shinin Abdullah" class="footer-mini-avatar">
-            <span class="footer-duo-symbol">🤍</span>
-            <img src="images/bride_avatar.jpg" alt="Fathima Abdul Jamal" class="footer-mini-avatar">
-        </div>
-        <p class="split-animate">Looking forward to celebrating with you!</p>
-        <p class="names split-animate">Shinin Abdullah & Fathima Abdul Jamal</p>
-        <p class="footer-subtext split-animate">October 21, 2026 • Meruzila Convention Center, Poonoor - Narikkuni Rd, Elettil, Kozhikode</p>
+        <!-- 5. Interactive Scratch / Reveal Card -->
+        <section class="scratch-section">
+            <div class="container">
+                <div class="header-badge fade-in-on-scroll">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <span>Interactive Reveal</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h2 class="section-title fade-in-on-scroll">A Beautiful Date Awaits</h2>
+                <p class="section-subtitle fade-in-on-scroll">Scratch the gold surface below to unveil the official Wedding celebration!</p>
 
-        <!-- Invitegram Branding -->
-        <div class="invitegram-badge split-animate">
-            <span>Built with <span class="brand-highlight">Invitegram</span></span>
-            <span class="badge-dot">•</span>
-            <a href="https://wa.me/918086812602" target="_blank" rel="noopener noreferrer" class="brand-link" title="Contact on WhatsApp">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                +91 80868 12602
-            </a>
-        </div>
-    </footer>
+                <div class="scratch-card-wrapper fade-in-on-scroll">
+                    <!-- Underneath Content -->
+                    <div class="scratch-card-under">
+                        <div class="emblem-circle" style="width: 38px; height: 38px; margin-bottom: 0.5rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        </div>
+                        <h3 class="scratch-date-text gold-text-gradient">Wednesday, Oct 21, 2026</h3>
+                        <p class="scratch-time-text">11:00 AM to 3:00 PM</p>
+                        <div class="scratch-venue-pill">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Meruzila Convention Center, Poonoor</span>
+                        </div>
+                    </div>
 
+                    <!-- Scratch Canvas Overlay -->
+                    <canvas id="scratch-canvas" class="scratch-canvas"></canvas>
+                </div>
+
+                <button id="auto-reveal-btn" class="auto-reveal-link">Click to auto-reveal date</button>
+            </div>
+        </section>
+
+        <!-- 6. Venue & Location ("Where We Say I Do") -->
+        <section class="venue-section">
+            <div class="container">
+                <div class="header-badge fade-in-on-scroll">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <span>Venue &amp; Location</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h2 class="section-title fade-in-on-scroll">Where We Say I Do</h2>
+                <p class="section-subtitle fade-in-on-scroll">Join us at our blessed venue as we celebrate our holy union.</p>
+
+                <div class="glass-panel venue-card fade-in-on-scroll">
+                    <!-- Venue Image -->
+                    <div class="venue-image-wrapper">
+                        <img src="images/meruzila.webp" alt="Meruzila Convention Center">
+                    </div>
+
+                    <!-- Venue Info -->
+                    <div class="venue-details-col">
+                        <span class="venue-badge-pill">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Auditorium Location</span>
+                        </span>
+
+                        <h3 class="venue-name-heading">Meruzila Convention Center</h3>
+                        <p class="venue-location-sub">Poonoor - Narikkuni Rd, Kanjiramukku, Elettil, Kizhakkoth, Kozhikode, Kerala 673572</p>
+
+                        <div class="venue-divider-line"></div>
+
+                        <div class="venue-meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>Wednesday, October 21, 2026</span>
+                        </div>
+
+                        <div class="venue-meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>Wedding Ceremony from 11:00 AM – 3:00 PM</span>
+                        </div>
+
+                        <a href="https://www.google.com/maps/dir//MERUZILA+CONVENTION+CENTER,+Poonoor+-+Narikkuni+Rd,+Kanjiramukku,+Elettil,+Kizhakkoth,+Keralam+673572/@12.8452076,77.6421572,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3ba6676f2bbafc37:0x961982a6b28edf1c!2m2!1d75.8832788!2d11.3905317?entry=ttu&amp;g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold-action">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                            <span>Get Directions on Google Maps</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Footer Section -->
+        <footer class="invitation-footer">
+            <div class="container">
+                <div class="glass-panel footer-card fade-in-on-scroll">
+                    <div class="footer-bismillah" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+                    <h2 class="footer-heading">We Look Forward to Celebrating With You</h2>
+                    <p class="footer-closing-dua">"Your presence and auspicious prayers will make our union truly blessed. Insha'Allah."</p>
+
+                    <div class="footer-names-box">
+                        <p class="footer-couple-names gold-text-gradient">Shinin Abdullah &amp; Fathima</p>
+                        <p class="footer-date-venue">October 21, 2026 • Meruzila Convention Center, Kozhikode</p>
+                    </div>
+
+                    <div class="footer-buttons-group">
+                        <button id="replay-envelope-btn" class="btn-secondary-white">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+                            <span>Replay Video Envelope</span>
+                        </button>
+
+                        <button id="share-invite-btn" class="btn-gold-action" style="width: auto; margin-top: 0; padding: 11px 24px;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                            <span>Share Invitation</span>
+                        </button>
+                    </div>
+
+                    <div class="invitegram-credit">
+                        <span>Crafted with elegance for <a href="https://wa.me/918086812602" target="_blank" rel="noopener noreferrer">Invitegram</a></span>
+                        <span>•</span>
+                        <a href="https://wa.me/918086812602" target="_blank" rel="noopener noreferrer">+91 80868 12602</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- ==========================================================================
+         FLOATING CIRCULAR LUXURY MUSIC BUTTON (Bottom-Right)
+         ========================================================================== -->
+    <div class="floating-music-btn-container" id="floating-music-container">
+        <button id="floating-music-btn" class="floating-music-btn playing" aria-label="Mute sound" title="Mute Sound">
+            <span class="music-tooltip">Mute</span>
+            <!-- Speaker Icon with Sound Waves (Playing) -->
+            <svg class="music-icon-playing" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path class="wave wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path class="wave wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+            <!-- Speaker Icon with Mute Slash (Muted) -->
+            <svg class="music-icon-muted" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Lenis Smooth Scroll -->
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script src="script.js"></script>
 </body>
