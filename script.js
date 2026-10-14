@@ -101,16 +101,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // 3. Interactive 3D Video Envelope Opening (Auto-play on load + smooth reveal)
+    // 3. Automated 3D Video Envelope Opening (100% Automated, Zero User Interaction)
     // =========================================================================
     const envelopeScreen = document.getElementById('envelope-screen');
     const envelopeVideo = document.getElementById('envelope-video');
     const invitationContent = document.getElementById('invitation-content');
     const replayEnvelopeBtn = document.getElementById('replay-envelope-btn');
-    let isEnvelopeOpening = false;
+    let hasOpened = false;
 
     function finishOpening() {
-        if (!envelopeScreen || envelopeScreen.classList.contains('opened')) return;
+        if (hasOpened) return;
+        hasOpened = true;
+        if (!envelopeScreen) return;
+
         envelopeScreen.classList.add('opened');
 
         // Reveal floating music control button once invitation is opened
@@ -128,11 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
             invitationContent.classList.add('visible');
         }
 
+        // Trigger Nasheed background music
+        playNasheed();
+
         setTimeout(() => {
             envelopeScreen.style.display = 'none';
             document.body.classList.remove('opening-active');
             if (envelopeVideo) {
-                envelopeVideo.pause();
+                try { envelopeVideo.pause(); } catch(e) {}
             }
             window.scrollTo(0, 0);
             if (lenis) {
@@ -143,53 +149,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 750);
     }
 
-    function triggerEnvelopeOpen() {
-        if (isEnvelopeOpening) {
-            finishOpening();
-            playNasheed();
-            return;
-        }
-        isEnvelopeOpening = true;
-
-        if (tapPrompt) {
-            tapPrompt.style.opacity = '0';
-            tapPrompt.style.pointerEvents = 'none';
-        }
-
-        playNasheed();
-
-        if (envelopeVideo) {
-            envelopeVideo.play().catch(() => {});
-            envelopeVideo.addEventListener('ended', finishOpening, { once: true });
-            envelopeVideo.addEventListener('timeupdate', () => {
-                if (envelopeVideo.currentTime >= 2.1) finishOpening();
-            });
-            setTimeout(finishOpening, 2400);
-        } else {
-            finishOpening();
-        }
-    }
-
-    // Auto-play envelope video immediately on page load
     if (envelopeVideo) {
+        // Enforce muted & inline playback for iOS/Android silent autoplay
         envelopeVideo.muted = true;
-        const autoPlayPromise = envelopeVideo.play();
-        if (autoPlayPromise !== undefined) {
-            autoPlayPromise.then(() => {
-                isEnvelopeOpening = true;
-                envelopeVideo.addEventListener('ended', finishOpening, { once: true });
-                envelopeVideo.addEventListener('timeupdate', () => {
-                    if (envelopeVideo.currentTime >= 2.1) finishOpening();
-                });
+        envelopeVideo.defaultMuted = true;
+        envelopeVideo.playsInline = true;
+        envelopeVideo.setAttribute('muted', '');
+        envelopeVideo.setAttribute('playsinline', '');
+        envelopeVideo.setAttribute('webkit-playsinline', '');
+
+        // Listen for video progress to automatically open as soon as envelope flap opens
+        const checkTime = () => {
+            if (envelopeVideo.currentTime >= 2.0) {
+                finishOpening();
+            }
+        };
+
+        envelopeVideo.addEventListener('timeupdate', checkTime);
+        envelopeVideo.addEventListener('ended', finishOpening);
+        envelopeVideo.addEventListener('error', finishOpening);
+
+        // Immediate autoplay attempt
+        const playPromise = envelopeVideo.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // Video is actively playing, safety watchdog at 2.4s
                 setTimeout(finishOpening, 2400);
             }).catch(() => {
-                // If autoplay prevented, user can tap anywhere to start
+                // If browser strictly blocks video autoplay, do NOT wait or show play button:
+                // seamlessly transition straight into the website!
+                finishOpening();
             });
         }
+
+        // Absolute fallback watchdog timer: regardless of video buffering or browser state,
+        // page MUST open within 2.5s maximum without requiring user to touch anything.
+        setTimeout(finishOpening, 2500);
+    } else {
+        finishOpening();
     }
 
+    // Safety click listener: if user taps anywhere during the brief animation, open immediately
     if (envelopeScreen) {
-        envelopeScreen.addEventListener('click', triggerEnvelopeOpen);
+        envelopeScreen.addEventListener('click', () => {
+            finishOpening();
+        });
     }
 
     // Auto-enable Nasheed audio on first user touch/click/scroll if browser blocked initial autoplay
@@ -220,21 +224,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 lenis.stop();
                 lenis.scrollTo(0, { immediate: true });
             }
-            isEnvelopeOpening = false;
+            hasOpened = false;
             if (envelopeScreen) {
                 envelopeScreen.style.display = 'flex';
                 envelopeScreen.classList.remove('opened');
                 if (envelopeVideo) {
                     envelopeVideo.currentTime = 0;
                     envelopeVideo.play().catch(() => {});
-                    envelopeVideo.addEventListener('ended', finishOpening, { once: true });
                     const onReplayTime = () => {
-                        if (envelopeVideo.currentTime >= 2.1) {
+                        if (envelopeVideo.currentTime >= 2.0) {
                             finishOpening();
                             envelopeVideo.removeEventListener('timeupdate', onReplayTime);
                         }
                     };
                     envelopeVideo.addEventListener('timeupdate', onReplayTime);
+                    envelopeVideo.addEventListener('ended', finishOpening, { once: true });
                     setTimeout(finishOpening, 2400);
                 }
             }

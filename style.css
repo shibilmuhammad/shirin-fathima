@@ -132,6 +132,25 @@ body.opening-active {
     object-fit: cover;
     object-position: center;
     transition: opacity 0.7s ease;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    user-select: none;
+}
+
+/* Explicitly eliminate native WebKit/Safari/Chrome play button overlays and controls */
+.envelope-video::-webkit-media-controls,
+.envelope-video::-webkit-media-controls-enclosure,
+.envelope-video::-webkit-media-controls-panel,
+.envelope-video::-webkit-media-controls-play-button,
+.envelope-video::-webkit-media-controls-start-playback-button,
+.envelope-video::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+    -webkit-appearance: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 
 /* Tap to Open Golden Pill Button */
