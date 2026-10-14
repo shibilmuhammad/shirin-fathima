@@ -227,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (envelopeVideo) {
                     envelopeVideo.currentTime = 0;
                     envelopeVideo.play().catch(() => {});
+                    envelopeVideo.addEventListener('ended', finishOpening, { once: true });
                 }
             }
         });
